@@ -1,0 +1,163 @@
+<!--HTML CODE-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My Portfolio Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <h1>AVHAD NIKITA</h1>
+            <p>Web Developer | Designer | Android Developer</p>
+            <!-- Optionally, include a brief introduction or tagline -->
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="myphoto.jpeg" alt="Your Name" weidth="100px" height="100px">
+                <p>Looking for a stimulating role where I can leverage my skills and knowledge to drive
+					positive change and exceed organizational goals..</p>
+					<p> <b>Experience</b> : Innovation Hub . ptv.ltd.nashik
+						form Internship In Android Development
+						</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript</li>
+                <li>Responsive Design</li>
+                <li>UI/UX Design</li>
+                <!-- Add more skills as needed -->
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project Title 1</h3>
+                <p>Description of Project 1 : Developing a Calculator USing Html,Css and JavaScript</p>
+                <img src="project1.png" alt="Project 1" width="300px"height="200px">
+            </div>
+            <div class="project">
+                <h3>Project Title 2</h3>
+                <p>Description of Project 2 : Developing Online Quiz Maker Using Html,Css and JavaScript </p>
+                <img src="project2.png" alt="Project 2" width="300px"height="200px">
+            </div>
+            <!-- Add more projects as needed -->
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="container">
+            <h2>Resume</h2>
+            <p>Download my <a href="resume.pdf" target="_blank">resume</a>.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <ul>
+                <li>Email: avhadnikita2003@gmail.com</li>
+                <li>Phone:8983753386</li>
+                <!-- Add more contact information as needed -->
+            </ul>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p>Find me on <a href="https://github.com/yourusername">GitHub</a> | Follow me on <a href="https://twitter.com/yourtwitter">Twitter</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<!--CSS CODE-->
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #131010;
+}
+
+.container {
+  color: #3d1919;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+}
+
+header, footer, section {
+  padding: 40px 0;
+  text-align: center;
+}
+
+header h1 {
+  color: #b95e5e;
+  font-size: 3em;
+  margin-bottom: 10px;
+  font-family: fantasy;
+}
+
+header p {
+  font-size: 1.5em;
+  color: #666;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: px;
+  margin-top: 20px;
+}
+
+.about-content img {
+  max-width: 200px;
+  border-radius: 50%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.project {
+  margin-bottom: 40px;
+  
+}
+
+.project img {
+  max-width: 100%;
+}
+
+footer p {
+  font-size: 0.8em;
+  margin-top: 20px;
+}

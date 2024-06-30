@@ -1,0 +1,164 @@
+<!--HTML CODE-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Quiz Maker</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="quiz-container">
+    <div id="quiz"></div>
+    <button id="submit">Submit Quiz</button>
+</div>
+
+<script src="quiz.js"></script>
+</body>
+</html>
+
+
+<!--CSS CODE-->
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.quiz-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+<!--JAVASCRIPT PAGE-->
+
+const quizData = [
+    {
+        question: "What is the capital of France?",
+        answers: {
+            a: "Paris",
+            b: "Madrid",
+            c: "Rome"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is 4 + 4?",
+        answers: {
+            a: "4",
+            b: "8",
+            c: "12"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "Who wrote 'To Kill a Mockingbird'?",
+        answers: {
+            a: "Harper Lee",
+            b: "Mark Twain",
+            c: "Jane Austen"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What was the original name of Mickey Mouse",
+        answers: {
+            a: "Mortimer Mouse",
+            b: "The Rat",
+            c: "Marvin Mouse"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "Which superhero, with the alter ego Wade Wilson and the powers of accelerated healing, was played by Ryan Reynolds in a 2016 film of the same name?",
+        answers: {
+            a: "Deadpool",
+            b: "Black Panther",
+            c: "Ant-Man"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "Who sings Poker Face?",
+        answers: {
+            a: "Madonna",
+            b: "Lady Gaga",
+            c: "Kelly Clarkston"
+        },
+        correctAnswer: "b"
+    }
+];
+
+const quizContainer = document.getElementById('quiz');
+const submitButton = document.getElementById('submit');
+
+function buildQuiz() {
+    const output = [];
+
+    quizData.forEach((currentQuestion, questionNumber) => {
+        const answers = [];
+
+        for (const letter in currentQuestion.answers) {
+            answers.push(
+                `<label>
+                    <input type="radio" name="question${questionNumber}" value="${letter}">
+                    ${letter} : ${currentQuestion.answers[letter]}
+                </label>`
+            );
+        }
+
+        output.push(
+            `<div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join('')} </div>`
+        );
+    });
+
+    quizContainer.innerHTML = output.join('');
+}
+
+function showResults() {
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+    let numCorrect = 0;
+
+    quizData.forEach((currentQuestion, questionNumber) => {
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        if (userAnswer === currentQuestion.correctAnswer) {
+            numCorrect++;
+            answerContainers[questionNumber].style.color = 'lightgreen';
+        } else {
+            answerContainers[questionNumber].style.color = 'red';
+        }
+    });
+
+    alert(`You got ${numCorrect} out of ${quizData.length} questions correct!`);
+}
+
+buildQuiz();
+
+submitButton.addEventListener('click', showResults);
